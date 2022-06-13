@@ -10,6 +10,7 @@
             </div>
         </div>
         <div class="lower"> 
+            
             © 2022 Daily Stocks, all rights reserved
         </div>
         
@@ -44,6 +45,9 @@
 
     .lower{
         text-align: center;
+        margin: 1em;
+        align-items: center;
+        font-weight: 700;
     }
 
     a{

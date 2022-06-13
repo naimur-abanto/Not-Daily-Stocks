@@ -35,10 +35,13 @@ export default defineComponent({
     padding: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    background-image: url('@/assets/background.png');
+    /* background-image: url('@/assets/background.png'); */
+    /* background-size: 281px 384px ; */
+    background-image: url('@/assets/landing.png');
     background-repeat: no-repeat;
     background-position-x: right;
-    background-size: 281px 384px ;
+    background-size: 550px 750px;
+    
   }
 
   /* .background-image-fixed{

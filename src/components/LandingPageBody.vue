@@ -5,10 +5,8 @@
         </h1>
         <p>
             Sends stock price alert when price drops or rises to your specified price.
-        </p>
-        
+        </p>     
     </div>
-
     <div>
         <button class="si">SIGN IN</button>
         <button class="su">SIGN UP</button>
