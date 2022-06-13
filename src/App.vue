@@ -1,27 +1,57 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+
+  <the-header></the-header>
+  <!-- <img class="backgrounf-image-fixed" src="@/assets/background.png" alt="" srcset=""> -->
+  <landing-page-body></landing-page-body>
+  <the-footer></the-footer>
+
+  
+  
+  
+  
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent, registerRuntimeCompiler } from 'vue';
+import TheHeader from './components/TheHeader.vue'
+import LandingPageBody from './components/LandingPageBody.vue'
+import TheFooter from  './components/TheFooter.vue'
+
+
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    TheHeader, 
+    LandingPageBody,
+    TheFooter
   }
 });
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    background-image: url('@/assets/background.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: 281px 384px ;
+  }
+
+  /* .background-image-fixed{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+} */
+  /* .landing-page-body{
+    background-blend-mode;
+    margin: 0 1.5 0 1.5;
+  } */
+
 </style>
+
+

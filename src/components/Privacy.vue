@@ -1,0 +1,8 @@
+<template>
+<h1>
+    Privacy
+</h1>
+    <p>
+
+    </p>
+</template>
