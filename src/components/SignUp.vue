@@ -20,5 +20,13 @@ export default{
     }
 
 }
-
 </script>
+
+<style scoped>
+    a{
+        list-style: none;
+        text-decoration: none;
+        color: #fe4642;;
+        font-weight: bold;
+    }
+</style>

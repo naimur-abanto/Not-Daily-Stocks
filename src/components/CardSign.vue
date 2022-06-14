@@ -21,5 +21,6 @@
         font-weight: 700;;
         text-align: center;
         margin: 1em;
+        cursor: pointer;
     }
 </style>

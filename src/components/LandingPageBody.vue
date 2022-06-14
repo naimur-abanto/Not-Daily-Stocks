@@ -17,6 +17,8 @@
 
 <style scoped>
 
+    
+
     section{
         position: fixed;
         transform: translateY(-1em);
@@ -49,16 +51,17 @@
     a{
         list-style: none;
         text-decoration: none;
-        width: 186px;
+        padding: 20px 50px;
+        width: 200px;
         height: 70px;
         border: none;
         border-radius: 50px;
         font-weight: 600;
-        /* font-size: larger; */
+        font-size: larger;
         color: white;
         margin-right: 1em;
         /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
-        /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
                 
     }
 

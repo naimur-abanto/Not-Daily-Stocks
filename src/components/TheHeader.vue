@@ -1,11 +1,11 @@
 <template>
     <header>
         <div>
-            <img class="logo" src="@/assets/logo.png" alt="">
-            <button> Sign In </button>
+            <router-link class="homepagelogo" to="/">
+                <img class="logo" src="@/assets/logo.png" alt="">
+            </router-link>            
+            <router-link class="sign-in-button" to="LogIn"> Sign In </router-link>
         </div>
-        
-        
     </header>
 </template>
 
@@ -19,17 +19,19 @@
             margin:.5em 2.5em .5em 2.5em;
         }
 
-        button{
+        .sign-in-button{
+            list-style: none;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px 10px;
             background: #FE4642;
-            font: 14px;
-            font-weight: 700;
             color: white;
-            height: 40px;
-            width: 80px;
+            /* height: 40px;
+            width: 80px; */
             border: none;
-            border-radius: 10%;       
+            border-radius: 10px;       
     }
-        button:hover{
+        .sign-in-button:hover{
             background: #ff655a;
             cursor: pointer;
         }

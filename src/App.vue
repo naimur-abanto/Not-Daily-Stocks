@@ -5,9 +5,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, registerRuntimeCompiler } from 'vue';
+import { defineComponent} from 'vue';
 import TheHeader from './components/TheHeader.vue'
-import LandingPageBody from './components/LandingPageBody.vue'
 import TheFooter from  './components/TheFooter.vue'
 
 export default defineComponent({
@@ -27,13 +26,12 @@ export default defineComponent({
     padding: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    /* background-image: url('@/assets/background.png'); */
-    /* background-size: 281px 384px ; */
     background-image: url('@/assets/landing.png');
-    background-repeat: no-repeat;
-    background-position-x: right;
-    background-attachment: fixed;
-    background-size: 550px 750px;
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-attachment: fixed;
+        background-size: 550px 750px;
+    
     
   }
 
