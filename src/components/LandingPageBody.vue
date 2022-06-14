@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <section>
+        <div>
         <h1>
             Daily Stocks
         </h1>
@@ -8,12 +9,18 @@
         </p>     
     </div>
     <div>
-        <button class="si">SIGN IN</button>
-        <button class="su">SIGN UP</button>
+        <router-link to="/LogIn" class="si">SIGN IN</router-link>
+        <router-link to="/SignUp" class="su">SIGN UP</router-link>
     </div>
+    </section>  
 </template>
 
 <style scoped>
+
+    section{
+        position: fixed;
+        transform: translateY(-1em);
+    }
     div{
         margin: 2em 4.5em 2em 4.5em;
         
@@ -27,6 +34,7 @@
         font-weight: bold 800;
         font-stretch: ultra-expanded !important;
         margin: 1em 1.25em 0 0;
+        color: rgb(41, 41, 41);
     }
 
     p{
@@ -35,22 +43,28 @@
         font-size: calc(1rem + 1vw);
         max-width: 50%;
         line-height: 1.5;
+        color: rgb(41,41,41);
     }
 
-    button{
-        width: 160px;
-        height: 60px;
+    a{
+        list-style: none;
+        text-decoration: none;
+        width: 186px;
+        height: 70px;
         border: none;
         border-radius: 50px;
         font-weight: 600;
-        font-size: larger;
+        /* font-size: larger; */
         color: white;
         margin-right: 1em;
+        /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+        /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
                 
     }
 
-    button:hover{
+    a:hover{
         cursor: pointer;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
     }
 

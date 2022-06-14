@@ -1,14 +1,7 @@
 <template>
-
   <the-header></the-header>
-  <!-- <img class="backgrounf-image-fixed" src="@/assets/background.png" alt="" srcset=""> -->
-  <landing-page-body></landing-page-body>
-  <the-footer></the-footer>
-
-  
-  
-  
-  
+  <router-view></router-view>
+  <the-footer></the-footer>    
 </template>
 
 <script lang="ts">
@@ -17,13 +10,10 @@ import TheHeader from './components/TheHeader.vue'
 import LandingPageBody from './components/LandingPageBody.vue'
 import TheFooter from  './components/TheFooter.vue'
 
-
-
 export default defineComponent({
   name: 'App',
   components: {
-    TheHeader, 
-    LandingPageBody,
+    TheHeader,
     TheFooter
   }
 });
@@ -31,6 +21,8 @@ export default defineComponent({
 
 <style>
   body{
+    height: 101vh;
+    overflow-y: scroll;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -40,6 +32,7 @@ export default defineComponent({
     background-image: url('@/assets/landing.png');
     background-repeat: no-repeat;
     background-position-x: right;
+    background-attachment: fixed;
     background-size: 550px 750px;
     
   }

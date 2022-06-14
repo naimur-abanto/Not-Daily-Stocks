@@ -6,7 +6,7 @@
                 <a href="./Terms.vue">Terms</a>
             </div>
             <div class="right">
-                Right Side
+                <img src="@/assets/facebook.svg" alt="">                
             </div>
         </div>
         <div class="lower"> 
@@ -18,14 +18,18 @@
     </div>
 </template>
 
-
-
 <style scoped>
+
+    .fb-icon{
+        height: 64px;
+        background: rebeccapurple;
+        border: 2px;
+    }
 
     .footer-combined{
         margin: 0;
         padding: 0;
-        position: fixed;
+        transform: translateY(78vh);
         bottom: 0%;
         width: 100%;
         height: 7.5em;

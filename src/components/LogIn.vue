@@ -1,24 +1,20 @@
 <template>    
-    <div> 
-        <h3>Sign up</h3>
+    <div class="sign-up-box"> 
+        <h3>Log in</h3>
         <card-sign></card-sign>        
         <h3>
-            Have an account already? 
-            <router-link to="LogIn">Log In</router-link> 
+            Don't have an account yet? 
+            <router-link to="/SignUp">Sign Up</router-link> 
         </h3>
     </div>            
 </template>
 
 <script lang="ts">
-
 import CardSign from './CardSign.vue'
-
 export default{
-
     components: {
         CardSign
     }
-
 }
-
 </script>
+
