@@ -1,13 +1,12 @@
 <template>    
     <div >
-        <img src="@/assets/logo.png" alt=""> 
+        <!-- <img src="@/assets/logo.png" alt="">  -->
         <h3>Log in</h3>
-        <card-sign></card-sign>        
-        <h3>
-            New to Daily Stocks? 
-            <router-link to="/SignUp">Sign Up</router-link> 
-        </h3>
+        <card-sign></card-sign>           
     </div>            
+    <div class="after-buttons">
+        New to Daily Stocks? <router-link to="SignUp"> Sign Up</router-link>
+    </div>
 </template>
 
 <script lang="ts">
@@ -42,6 +41,9 @@ export default{
         text-decoration: none;
         color: #fe4642;;
         font-weight: bold;
+    }
+    .after-buttons{
+        text-align: center;
     }
 </style>
 

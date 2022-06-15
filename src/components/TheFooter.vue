@@ -2,6 +2,7 @@
     <div class="footer-combined">
         <div class="upper">
             <div class="left">
+                <router-link to="Privacy"></router-link>
                 <a href="./Privacy.vue">Privacy</a>
                 <a href="./Terms.vue">Terms</a>
             </div>

@@ -29,7 +29,8 @@
             /* height: 40px;
             width: 80px; */
             border: none;
-            border-radius: 10px;       
+            border-radius: 10px;
+            font-size: 12;       
     }
         .sign-in-button:hover{
             background: #ff655a;
@@ -71,7 +72,9 @@
         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;   
     }
     .logo{
-        height: 100px;   
+        height: 100px;
+        padding-top: 20px;   
     }
+    
 </style>
 
