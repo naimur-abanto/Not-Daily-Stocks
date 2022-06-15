@@ -1,43 +1,48 @@
-import { createRouter, createWebHistory} from 'vue-router'
-// import LogIn from '@/components/LogIn.vue'
-// import SignUp from '@/components/SignUp.vue'
-import PrivacyDetails from '@/components/PrivacyDetails.vue'
-import TermsDetails from '@/components/TermsDetails.vue'
-
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-    { 
-        path: '/',
-        name: 'LandingPage',  
-        component: () => import('@/views/LandingPage.vue')
-    },
-    // { path: '/signup', component: SignUp },
-    // { path: '/login', component: LogIn },
-    { path: '/privacy', component: PrivacyDetails },
-    { path: '/terms', component: TermsDetails },
-  
   {
-    path: '/auth',
-    name: 'Auth',
-    component: () => import(/* webpackChunkName: "auth" */ '@/views/Auth/AuthView.vue'),
+    path: "/",
+    name: "LandingPage",
+    component: () => import("@/views/LandingPage.vue"),
+  },
+  {
+    path: "/privacy",
+    name: "PrivacyDetails",
+    component: () => import("@/views/PrivacyDetails.vue"),
+  },
+
+  {
+    path: "/terms",
+    name: "TermsDetails",
+    component: () => import("@/views/TermsDetails.vue"),
+  },
+
+  {
+    path: "/auth",
+    name: "Auth",
+    component: () =>
+      import(/* webpackChunkName: "auth" */ "@/views/Auth/AuthView.vue"),
     children: [
       {
-        path: 'login',
-        name: 'Login',
-        component: () => import(/* webpackChunkName: "login" */ '../views/Auth/LogIn.vue'),
+        path: "login",
+        name: "Login",
+        component: () =>
+          import(/* webpackChunkName: "login" */ "../views/Auth/LogIn.vue"),
       },
       {
-        path: 'signup',
-        name: 'SignUp',
-        component: () => import(/* webpackChunkName: "signup" */ '../views/Auth/SignUp.vue'),
+        path: "signup",
+        name: "SignUp",
+        component: () =>
+          import(/* webpackChunkName: "signup" */ "../views/Auth/SignUp.vue"),
       },
-    ]
-    }
-]
+    ],
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
