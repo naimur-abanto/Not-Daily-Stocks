@@ -3,19 +3,16 @@
         <div class="upper">
             <div class="left">
                 <router-link to="Privacy"></router-link>
+                <router-link to=""></router-link>
                 <a href="./Privacy.vue">Privacy</a>
                 <a href="./Terms.vue">Terms</a>
             </div>
-            <div class="right">
-                <img src="@/assets/facebook.svg" alt="">                
+            <div class="right">             
             </div>
         </div>
         <div class="lower"> 
-            
             © 2022 Daily Stocks, all rights reserved
         </div>
-        
-
     </div>
 </template>
 

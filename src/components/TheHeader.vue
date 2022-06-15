@@ -4,7 +4,7 @@
             <router-link class="homepagelogo" to="/">
                 <img class="logo" src="@/assets/logo.png" alt="">
             </router-link>            
-            <router-link class="sign-in-button" to="LogIn"> Sign In </router-link>
+            <router-link class="sign-in-button" to="/Auth/LogIn"> Sign In </router-link>
         </div>
     </header>
 </template>

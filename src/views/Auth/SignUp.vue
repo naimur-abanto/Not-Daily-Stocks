@@ -10,7 +10,7 @@
 
 <script lang="ts">
 
-import CardSign from './CardSign.vue'
+import CardSign from '@/components/CardSign.vue'
 
 export default{
     components: {
