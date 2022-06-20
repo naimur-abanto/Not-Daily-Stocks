@@ -13,10 +13,6 @@
 </template>
 
 <style scoped>
-a {
-  color: violet;
-  border: 2px solid black;
-}
 header {
   height: 64px;
   display: flex;

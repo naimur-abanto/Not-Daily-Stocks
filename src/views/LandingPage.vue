@@ -7,9 +7,10 @@
         price.
       </p>
     </div>
-
-    <router-link to="/auth/login" class="si">SIGN IN</router-link>
-    <router-link to="/Auth/SignUp" class="su">SIGN UP</router-link>
+    <div>
+      <router-link to="/auth/login" class="si">SIGN IN</router-link>
+      <router-link to="/Auth/SignUp" class="su">SIGN UP</router-link>
+    </div>
   </section>
   <the-footer></the-footer>
 </template>

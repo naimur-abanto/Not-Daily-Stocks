@@ -23,7 +23,7 @@ body {
   font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
-  max-height: 10vh;
+  /* max-height: 100vh; */
 }
 
 /* div {

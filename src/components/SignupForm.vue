@@ -1,34 +1,55 @@
 <template>
   <div>
-    <input type="text" placeholde="Your email" v-model="email" name="" id="" />
+    <input type="text" placeholder="Your email" v-model="email" name="" id="" />
     <input
       type="password"
-      placeholde="Password"
+      placeholder="Password"
       v-model="password"
       name=""
       id=""
     />
     <input
       type="password"
-      placeholde="Confirm Password"
+      placeholder="Confirm Password"
       v-model="confirmPassword"
       name=""
       id=""
     />
 
-    <button>Sign Up</button>
+    <button @click="submitForm">Sign Up</button>
   </div>
 </template>
 
 <script lang="ts">
-// let email: string;
+import useValidate from "@vuelidate/core";
+import { required, email, minLength, sameAs } from "@vuelidate/validators";
 export default {
   data() {
     return {
+      v$: useValidate(),
       email: "",
       password: "",
       confirmPassword: "",
     };
+  },
+
+  validations() {
+    return {
+      email: { required, email },
+      password: { required, minLength: minLength(8) },
+      confirmPassword: { required, sameAs: sameAs(this.password) },
+    };
+  },
+
+  methods: {
+    submitForm() {
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        alert("Log in successful");
+      } else {
+        alert("All fields are required");
+      }
+    },
   },
 };
 </script>
@@ -37,7 +58,7 @@ export default {
 input {
   width: 405px;
   margin-bottom: 1em;
-  height: 2em;
+  height: 3em;
 }
 div {
   display: flex;
