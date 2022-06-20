@@ -1,4 +1,11 @@
-<template> 
-    <header></header>
-    <router-view></router-view>      
-</template> 
+<template>
+  <header></header>
+  <!-- <router-view class="auth"></router-view> -->
+  <!-- <router-view></router-view> -->
+</template>
+
+<style scoped>
+.auth {
+  transform: translateY(-17em);
+}
+</style>

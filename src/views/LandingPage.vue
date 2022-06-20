@@ -8,8 +8,8 @@
       </p>
     </div>
     <div>
-      <router-link to="/Auth/LogIn" class="si">SIGN IN</router-link>
-      <router-link to="/Auth/SignUp" class="su">SIGN UP</router-link>
+      <!-- <router-link to="/Auth/LogIn" class="si">SIGN IN</router-link>
+      <router-link to="/Auth/SignUp" class="su">SIGN UP</router-link> -->
     </div>
   </section>
   <the-footer></the-footer>

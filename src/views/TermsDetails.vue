@@ -6,4 +6,15 @@
     recusandae repudiandae cumque. Repellat laborum ad amet eum, nam cum sit.
     Dolor!
   </p>
+  <the-footer></the-footer>
 </template>
+
+<script lang="ts">
+import TheFooter from "@/components/TheFooter.vue";
+
+export default {
+  components: {
+    TheFooter,
+  },
+};
+</script>

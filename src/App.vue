@@ -23,8 +23,15 @@ body {
   font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
-  max-height: 101vh;
+  max-height: 10vh;
 }
+
+/* div {
+  background-image: url("@/assets/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+} */
 /* body{
     height: 101vh;
     overflow-y: scroll;
