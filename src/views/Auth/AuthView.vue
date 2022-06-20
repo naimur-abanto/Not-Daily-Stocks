@@ -1,7 +1,5 @@
 <template>
-  <header></header>
-  <!-- <router-view class="auth"></router-view> -->
-  <!-- <router-view></router-view> -->
+  <router-view></router-view>
 </template>
 
 <style scoped>

@@ -2,8 +2,8 @@
   <div class="footer-combined">
     <div class="upper">
       <div class="left">
-        <router-link to="Privacy">Privacy</router-link>
-        <router-link to="Terms">Terms</router-link>
+        <router-link to="/privacy">Privacy</router-link>
+        <router-link to="/terms">Terms</router-link>
       </div>
       <div class="right"></div>
     </div>

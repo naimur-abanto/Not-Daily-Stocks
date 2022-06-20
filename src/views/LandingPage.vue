@@ -7,10 +7,9 @@
         price.
       </p>
     </div>
-    <div>
-      <!-- <router-link to="/Auth/LogIn" class="si">SIGN IN</router-link>
-      <router-link to="/Auth/SignUp" class="su">SIGN UP</router-link> -->
-    </div>
+
+    <router-link to="/auth/login" class="si">SIGN IN</router-link>
+    <router-link to="/Auth/SignUp" class="su">SIGN UP</router-link>
   </section>
   <the-footer></the-footer>
 </template>
@@ -27,7 +26,6 @@ export default {
 <style scoped>
 section {
   position: fixed;
-  transform: translateY(-1em);
 }
 div {
   margin: 2em 4.5em 2em 4.5em;
