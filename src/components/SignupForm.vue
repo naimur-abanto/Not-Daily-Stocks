@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="TS">
 import useValidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 export default {
@@ -45,7 +45,7 @@ export default {
     submitForm() {
       this.v$.$validate();
       if (!this.v$.$error) {
-        alert("Log in successful");
+        alert("SignUp successful");
       } else {
         alert("All fields are required");
       }
