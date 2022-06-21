@@ -9,7 +9,9 @@
       v-model="email"
       name=""
     />
-    <div v-if="v$.email.$error"><p>! Email field has an error.</p></div>
+    <div v-if="v$.email.$error">
+      <p class="warning">Invalid email address</p>
+    </div>
     <input
       @blur="v$.password.$touch"
       type="password"
@@ -18,10 +20,10 @@
       name=""
     />
     <div v-if="v$.password.$error">
-      <p>! Password length needs to be atleast 8.</p>
+      <p class="warning">Password length needs to be atleast 8.</p>
     </div>
 
-    <button v-if="noError" @click="submitF">Sign Up</button>
+    <button class="sbmt" @click="submitForm">Log in</button>
   </div>
 </template>
 
@@ -49,17 +51,6 @@ export default {
     };
   },
 
-  computed: {
-
-    hasError() {
-      this.v$.$valiadte();
-      if (this.v$.$error) {
-        return !this.noError
-      } else {
-        return this.noError
-      }
-    }
-  },
 
   methods: {
     submitForm() {
@@ -75,11 +66,25 @@ export default {
 </script>
 
 <style scoped>
+.warning {
+  padding: 5px;
+  border: thin solid gray;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  transform: translateY(-2em);
+  margin-bottom: 0;
+}
+.sbmt {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
 p {
   color: red;
   padding: 0;
 }
 input {
+  background-color: bisque;
   width: 380px;
   margin-bottom: 1em;
   height: 3em;

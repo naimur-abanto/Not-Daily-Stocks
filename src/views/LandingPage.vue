@@ -1,4 +1,5 @@
 <template>
+  <the-header></the-header>
   <section>
     <div>
       <h1>Daily Stocks</h1>
@@ -16,9 +17,11 @@
 </template>
 
 <script lang="ts">
+import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 export default {
   components: {
+    TheHeader,
     TheFooter,
   },
 };

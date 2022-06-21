@@ -4,7 +4,7 @@
     <h3>Log in</h3>
     <div class="button-holder">
       <card-sign></card-sign>
-      <button @click="clicked()">Continue with Email</button>
+      <button v-if="buttonGone" @click="clicked()">Continue with Email</button>
       <login-form v-if="!isHidden"></login-form>
     </div>
   </div>
@@ -25,12 +25,14 @@ export default {
   data() {
     return {
       isHidden: true,
+      buttonGone:true
     };
   },
 
   methods: {
     clicked() {
       this.isHidden = !this.isHidden;
+      this.buttonGone = !this.buttonGone;
     },
   },
 };

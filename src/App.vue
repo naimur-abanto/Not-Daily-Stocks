@@ -1,19 +1,10 @@
-<template>
-  <the-header></the-header>
-  <main>
-    <router-view></router-view>
-  </main>
-</template>
+<template><router-view> </router-view></template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import TheHeader from "./components/TheHeader.vue";
 
 export default defineComponent({
   name: "App",
-  components: {
-    TheHeader,
-  },
 });
 </script>
 

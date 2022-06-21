@@ -4,7 +4,7 @@
     <h3>Sign up</h3>
     <div class="button-holder">
       <card-sign></card-sign>
-      <button @click="onSubmit()">Contunue with Email</button>
+      <button v-if="buttonGone" @click="onSubmit()">Contunue with Email</button>
       <signup-form v-if="!isHidden"></signup-form>
     </div>
   </div>
@@ -34,12 +34,14 @@ export default {
   data() {
     return {
       isHidden: true,
+      buttonGone: true
     };
   },
 
   methods: {
     onSubmit() {
       this.isHidden = !this.isHidden;
+      this.buttonGone = !this.buttonGone
     },
   },
 };
