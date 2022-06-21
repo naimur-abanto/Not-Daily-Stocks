@@ -54,11 +54,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 input {
-  width: 405px;
+  width: 380px;
   margin-bottom: 1em;
   height: 3em;
+  padding: 0.5em;
+  border: 2px solid grey;
+  border-radius: 10px;
 }
 div {
   display: flex;
@@ -71,16 +74,21 @@ button {
   height: 48px;
   border-radius: 10px;
   font-size: 16px;
-  line-height: 20px;
   font-weight: 700;
   text-align: center;
-  padding: 10px 10px;
   background: #fe4642;
   color: white;
-  /* height: 40px;
-            width: 80px; */
   border: none;
   border-radius: 10px;
+  border: 2px solid #fe4647;
   font-size: 12;
+
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+button:hover {
+  box-shadow: none;
+  background: #fe4647;
 }
 </style>
