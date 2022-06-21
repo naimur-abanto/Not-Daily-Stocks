@@ -57,7 +57,7 @@ button {
   border-bottom: 2px solid rgba(0, 0, 0, 0.12);
 }
 img {
-  width: 480px;
+  width: 540px;
 }
 h3 {
   width: 30vw;

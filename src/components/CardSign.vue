@@ -23,7 +23,7 @@ button {
   line-height: 20px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
   cursor: pointer;
   background: white;
   border: 1px solid #cccccc;

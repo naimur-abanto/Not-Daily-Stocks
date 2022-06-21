@@ -16,7 +16,7 @@
     <router-link to="/PrivacyDetails">Privacy policy.</router-link>
   </p>
   <div class="after-buttons">
-    Have an account already?<router-link class=".to-login" to="LogIn"
+    Have an account already?<router-link class="to-login" to="LogIn"
       >Log In</router-link
     >
   </div>
@@ -61,9 +61,10 @@ button {
   background: white;
   border: 1px solid #cccccc;
   color: black;
+  transform: translateY(-10px);
 }
 img {
-  width: 480px;
+  width: 540px;
 }
 h3 {
   width: 30vw;
@@ -85,12 +86,6 @@ div {
   border-bottom: 2px solid rgba(0, 0, 0, 0.12);
 }
 
-.to-login {
-  list-style: none;
-  text-decoration: none;
-  color: #fe4642;
-  font-weight: bold;
-}
 .after-buttons {
   text-align: center;
 }
@@ -113,5 +108,11 @@ p {
 a {
   text-decoration: none;
   color: rebeccapurple;
+}
+.to-login {
+  list-style: none;
+  text-decoration: none;
+  color: #fe4642;
+  font-weight: bo;
 }
 </style>
