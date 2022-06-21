@@ -37,8 +37,27 @@ export default {
 </script>
 
 <style scoped>
+button {
+  height: 48px;
+  width: 405px;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #cccccc;
+  color: black;
+  transform: translateY(-10px);
+}
+
+.button-holder {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+}
 img {
-  width: 540px;
+  width: 480px;
 }
 h3 {
   width: 30vw;
@@ -63,6 +82,7 @@ a {
   font-weight: bold;
 }
 .after-buttons {
+  margin-top: 10px;
   text-align: center;
 }
 </style>

@@ -4,7 +4,7 @@
     <h3>Sign up</h3>
     <div class="button-holder">
       <card-sign></card-sign>
-      <button @click="onSubmit()">SignUp</button>
+      <button @click="onSubmit()">Contunue with Email</button>
       <signup-form v-if="!isHidden"></signup-form>
     </div>
   </div>
@@ -16,7 +16,9 @@
     <router-link to="/PrivacyDetails">Privacy policy.</router-link>
   </p>
   <div class="after-buttons">
-    Have an account already?<router-link to="LogIn">Log In</router-link>
+    Have an account already?<router-link class=".to-login" to="LogIn"
+      >Log In</router-link
+    >
   </div>
 </template>
 
@@ -46,8 +48,22 @@ export default {
 <!-- TODO: move signup to side -->
 
 <style scoped>
+button {
+  height: 48px;
+  width: 405px;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #cccccc;
+  color: black;
+}
 img {
-  width: 540px;
+  width: 480px;
 }
 h3 {
   width: 30vw;
@@ -69,12 +85,12 @@ div {
   border-bottom: 2px solid rgba(0, 0, 0, 0.12);
 }
 
-/* a {
+.to-login {
   list-style: none;
   text-decoration: none;
   color: #fe4642;
   font-weight: bold;
-} */
+}
 .after-buttons {
   text-align: center;
 }

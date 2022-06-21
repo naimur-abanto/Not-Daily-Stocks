@@ -1,6 +1,6 @@
 <template>
+  <the-header></the-header>
   <main>
-    <the-header></the-header>
     <router-view></router-view>
   </main>
 </template>
