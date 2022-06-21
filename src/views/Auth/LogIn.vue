@@ -4,6 +4,8 @@
     <h3>Log in</h3>
     <div class="button-holder">
       <card-sign></card-sign>
+      <button @click="clicked()">Continue with Email</button>
+      <login-form v-if="!isHidden"></login-form>
     </div>
   </div>
   <div class="after-buttons">
@@ -11,11 +13,25 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="TS">
 import CardSign from "@/components/CardSign.vue";
+import LoginForm from "@/components/LoginForm.vue";
 export default {
   components: {
     CardSign,
+    LoginForm,
+  },
+
+  data() {
+    return {
+      isHidden: true,
+    };
+  },
+
+  methods: {
+    clicked() {
+      this.isHidden = !this.isHidden;
+    },
   },
 };
 </script>

@@ -4,19 +4,41 @@
     <h3>Sign up</h3>
     <div class="button-holder">
       <card-sign></card-sign>
+      <button @click="onSubmit()">SignUp</button>
+      <signup-form v-if="!isHidden"></signup-form>
     </div>
   </div>
+  <p>
+    To create your account, Google or Facebook will share your name, email
+    address and profile picture with Daily Stocks. By signing up, you accept
+    Daily Stocks's
+    <router-link to="/TermsDetails">Terms of use</router-link> and
+    <router-link to="/PrivacyDetails">Privacy policy.</router-link>
+  </p>
   <div class="after-buttons">
     Have an account already?<router-link to="LogIn">Log In</router-link>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="TS">
 import CardSign from "@/components/CardSign.vue";
-
+import SignupForm from "@/components/SignupForm.vue";
 export default {
   components: {
     CardSign,
+    SignupForm,
+  },
+
+  data() {
+    return {
+      isHidden: true,
+    };
+  },
+
+  methods: {
+    onSubmit() {
+      this.isHidden = !this.isHidden;
+    },
   },
 };
 </script>
@@ -43,13 +65,37 @@ div {
   padding: 0;
 }
 
-a {
+.button-holder {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+/* a {
   list-style: none;
   text-decoration: none;
   color: #fe4642;
   font-weight: bold;
+} */
+.after-buttons {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+p {
+  font-size: 12px;
+  color: #606060;
+  width: 405px;
+  text-align: center;
+  margin: 2em auto;
+  line-height: 1.5;
 }
 .after-buttons {
   text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: rebeccapurple;
 }
 </style>

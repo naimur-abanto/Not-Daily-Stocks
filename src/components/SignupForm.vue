@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="email"> {{ e1 }}</label>
+    <label for="email"> </label>
     <input
       @blur="v$.email.$touch"
       id="email"
@@ -62,7 +62,7 @@ export default {
 
     hasError() {
       this.v$.$valiadte();
-      if (!this.v$.$error) {
+      if (this.v$.$error) {
         return !this.noError
       } else {
         return this.noError
