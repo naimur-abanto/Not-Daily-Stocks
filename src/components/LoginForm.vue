@@ -1,5 +1,6 @@
 <template>
   <input v-model="email" type="text" name="" id="" />
+  <div>not a valid email address</div>
   <input v-model="password" type="password" name="" id="" />
   <button @click="submitForm"></button>
 </template>
@@ -20,6 +21,13 @@ export default{
         return{
             email: {required, email},
             password: {required}
+        }
+    },
+
+    computed:{
+        submitDorm(){
+            this.v$.validate()
+
         }
     },
 

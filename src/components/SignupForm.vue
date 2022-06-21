@@ -1,6 +1,15 @@
 <template>
   <div>
-    <input type="text" placeholder="Your email" v-model="email" name="" id="" />
+    <label for="email"> {{ e1 }}</label>
+    <input
+      @blur="check"
+      id="email"
+      type="text"
+      placeholder="Your email"
+      v-model="email"
+      name=""
+    />
+    <div v-if="v$.email.$error"><p>! Email field has an error.</p></div>
     <input
       type="password"
       placeholder="Password"
@@ -8,6 +17,9 @@
       name=""
       id=""
     />
+    <div v-if="v$.password.$error">
+      <p>! Password length needs to be atleast 8.</p>
+    </div>
     <input
       type="password"
       placeholder="Confirm Password"
@@ -15,8 +27,9 @@
       name=""
       id=""
     />
+    <div v-if="v$.confirmPassword.$error"><p>! Passwords did not match</p></div>
 
-    <button @click="submitForm">Sign Up</button>
+    <button @click="submitF">Sign Up</button>
   </div>
 </template>
 
@@ -30,6 +43,9 @@ export default {
       email: "",
       password: "",
       confirmPassword: "",
+      warningMessage: "",
+      error: "",
+      e1: ""
     };
   },
 
@@ -38,17 +54,36 @@ export default {
       email: { required, email },
       password: { required, minLength: minLength(8) },
       confirmPassword: { required, sameAs: sameAs(this.password) },
+
     };
+  },
+  computed:{
+
+
+    // mail(){
+    //   if(this.v$.email.$error){
+    //     this.e1 = "not a valid email"
+    //   }
+    //   else{
+    //     this.e1= ""
+    //   }
+    //   return this.e1
+    // }
   },
 
   methods: {
     submitForm() {
-      this.v$.$validate();
+      this.v$.$valiadte();
       if (!this.v$.$error) {
         alert("SignUp successful");
       } else {
         alert("All fields are required");
       }
+
+      // console.log(this.v$)
+
+
+
     },
   },
 };

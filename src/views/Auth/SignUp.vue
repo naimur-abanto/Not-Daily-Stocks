@@ -1,16 +1,14 @@
 <template>
-  <main>
-    <div>
-      <img src="@/assets/logo.png" alt="" />
-      <h3>Sign up</h3>
-      <div class="button-holder">
-        <card-sign></card-sign>
-      </div>
+  <div>
+    <img src="@/assets/logowt.png" alt="" />
+    <h3>Sign up</h3>
+    <div class="button-holder">
+      <card-sign></card-sign>
     </div>
-    <div class="after-buttons">
-      Have an account already?<router-link to="LogIn">Log In</router-link>
-    </div>
-  </main>
+  </div>
+  <div class="after-buttons">
+    Have an account already?<router-link to="LogIn">Log In</router-link>
+  </div>
 </template>
 
 <script lang="ts">
@@ -26,26 +24,15 @@ export default {
 <!-- TODO: move signup to side -->
 
 <style scoped>
-main {
-  max-height: 92vh;
-  /* overflow-y: hidden; */
-}
 img {
   width: 540px;
-  /* transform: translateY(-7em); */
-  padding: 0;
-  transform: translateY(8em);
 }
 h3 {
   width: 30vw;
   padding: 8px 0;
   background: #e6e6e6;
   text-align: center;
-  /* transform: translateY(-13.5em); */
 }
-/* .button-holder {
-  transform: translateY(-16em);
-} */
 
 div {
   display: flex;
@@ -64,6 +51,5 @@ a {
 }
 .after-buttons {
   text-align: center;
-  /* transform: translateY(-17em); */
 }
 </style>

@@ -1,16 +1,14 @@
 <template>
-  <main>
-    <div>
-      <img src="@/assets/logo.png" alt="" />
-      <h3>Log in</h3>
-      <div class="button-holder">
-        <card-sign></card-sign>
-      </div>
+  <div>
+    <img src="@/assets/logowt.png" alt="" />
+    <h3>Log in</h3>
+    <div class="button-holder">
+      <card-sign></card-sign>
     </div>
-    <div class="after-buttons">
-      New to Daily Stocks? <router-link to="SignUp"> Sign Up</router-link>
-    </div>
-  </main>
+  </div>
+  <div class="after-buttons">
+    New to Daily Stocks? <router-link to="SignUp"> Sign Up</router-link>
+  </div>
 </template>
 
 <script lang="ts">
@@ -23,25 +21,15 @@ export default {
 </script>
 
 <style scoped>
-main {
-  max-height: 92vh;
-  /* overflow-y: hidden; */
-}
 img {
   width: 540px;
-  /* transform: translateY(-7em); */
-  transform: translateY(8em);
 }
 h3 {
   width: 30vw;
   padding: 8px 0;
   background: #e6e6e6;
   text-align: center;
-  /* transform: translateY(-14em); */
 }
-/* .button-holder {
-  transform: translateY(-16em);
-} */
 
 div {
   display: flex;
@@ -60,6 +48,5 @@ a {
 }
 .after-buttons {
   text-align: center;
-  /* transform: translateY(-17em); */
 }
 </style>
