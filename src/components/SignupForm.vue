@@ -41,6 +41,8 @@
 <script lang="TS">
 import useValidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
+import {useUserStore} from "@/stores/user"
+const userStore = useUserStore()
 export default {
   data() {
     return {
@@ -82,8 +84,9 @@ export default {
       // } else {
       //   alert("Not YEiii")
       // }
-      this.$emit("userinfo", this.email, this.password)
-      console.log(this.$emit)
+      // this.$emit("userinfo", this.email, this.password)
+      // console.log(this.$emit)
+      // this.userStore.receieve(this.email, this.password)
 
     },
   },
