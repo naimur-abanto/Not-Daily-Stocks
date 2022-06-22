@@ -3,16 +3,9 @@ import { defineStore } from "pinia";
 export const userStore = defineStore({
   id: "user",
   state: () => ({
-    username: "",
-    password: "",
-    id: 2,
+    user: [{ email: "", password: "" }],
   }),
   getters: {
-    doSomething: (state) => (state.username = "newUsername"),
-  },
-  actions: {
-    changeId() {
-      this.id += 12900;
-    },
+    userCount: (state) => state.user.length,
   },
 });
