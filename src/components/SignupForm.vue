@@ -76,12 +76,15 @@ export default {
 
   methods: {
     submitForm() {
-      this.v$.$valiadte();
-      if (!this.v$.$error) {
-        alert("Yeii")
-      } else {
-        alert("Not YEiii")
-      }
+      // this.v$.$valiadte();
+      // if (!this.v$.$error) {
+      //   this.$emit("userinfo", this.email, this.password)
+      // } else {
+      //   alert("Not YEiii")
+      // }
+      this.$emit("userinfo", this.email, this.password)
+      console.log(this.$emit)
+
     },
   },
 };

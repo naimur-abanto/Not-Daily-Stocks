@@ -36,7 +36,6 @@ div {
 }
 
 h1 {
-  /* font-size: calc(4rem + 3vw)!important;   */
   @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
   font-family: "Lato", sans-serif;
   font-size: 7em;
@@ -67,7 +66,6 @@ a {
   font-size: larger;
   color: white;
   margin-right: 1em;
-  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
