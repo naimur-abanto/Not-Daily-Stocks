@@ -3,8 +3,6 @@
 <script lang="TS">
 import { defineComponent } from "vue";
 import {storeToRefs} from "pinia"
-import {useCounterStore} from "@/stores/counter.ts"
-
 export default defineComponent({
   name: "App",
 
