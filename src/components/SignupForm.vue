@@ -103,13 +103,13 @@ export default {
         sameAs: sameAs(password)
       }
     }
+    const v$ = useVuelidate(rules, { name, firstname, lastname, password, confirmPassword })
     function submitForm() {
       v$.$validate
       for(let error in v$.value.$errors){
         console.log(error.$message)
       }
     }
-    const v$ = useVuelidate(rules, { name, firstname, lastname, password, confirmPassword })
     return {
       emailAddress,
       firstname,
@@ -124,16 +124,14 @@ export default {
 
   methods: {
     clicked(){
-      this.v$.$validate
-      // console.log(this.v$.$errors)
-      for(let error in this.v$.$errors)
-      {
-        console.log(this.v$.$errors[error].$message)
+      this.v$.$validate()
+      if (!this.v$.$error) {
+        alert("SignUp successful");
+      } else {
+        alert("All fields are required");
       }
-
     }
   }
-
 };
 </script>
 
