@@ -39,25 +39,29 @@
 </template>
 
 <script lang="TS">
-import useValidate from "@vuelidate/core";
+import { ref } from 'vue'
+import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import {useUserStore} from "@/stores/user"
-import {mapActions} from "pinia"
-const main = useUserStore()
-// const {addUser} = main
-const {addUser} = mapActions(useUserStore, ["addUser"])
+
 export default {
-  data() {
+  setup() {
+    const email = ref("");
+    const password = ref("");
+    const confirmPassword = ref("");
+    // expose to template and other options API hooks
+    const userStore = useUserStore();
+
+    const {addUser} = userStore
+
     return {
-      v$: useValidate(),
-      email: "",
-      password: "",
-      confirmPassword: "",
-      warningMessage: "",
-      noError: false,
+      email,
+      password,
+      confirmPassword,
+      v$: useVuelidate(),
+      addUser
     };
   },
-
   validations() {
     return {
       email: { required, email },
@@ -65,9 +69,6 @@ export default {
       confirmPassword: { required, sameAs: sameAs(this.password) },
 
     };
-  },
-
-  methods: {
   },
 };
 </script>

@@ -15,7 +15,6 @@ export const useCounterStore = defineStore("main", {
 
     addOne() {
       this.counter++;
-      console.log(this.name);
     },
   },
 });
