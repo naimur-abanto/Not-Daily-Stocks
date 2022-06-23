@@ -84,13 +84,17 @@ p {
   padding: 0;
 }
 input {
-  background-color: bisque;
+  background: rgb(234, 234, 234);
   width: 380px;
   margin-bottom: 1em;
   height: 3em;
   padding: 0.5em;
   border: 2px solid grey;
   border-radius: 10px;
+}
+
+input:hover {
+  background: rgb(189, 189, 189);
 }
 div {
   display: flex;

@@ -30,7 +30,6 @@ export default {
     CardSign,
     SignupForm,
   },
-
   data() {
     return {
       userinfo:{
@@ -94,6 +93,7 @@ div {
 
 .after-buttons {
   text-align: center;
+  margin-bottom: 50px;
 }
 
 h3 {

@@ -85,6 +85,7 @@ a {
 }
 .after-buttons {
   margin-top: 10px;
+  margin-bottom: 50px;
   text-align: center;
 }
 </style>

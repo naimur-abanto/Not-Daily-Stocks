@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Email address -->
     <label for="email"> </label>
     <input
       @blur="v$.email.$touch"
@@ -10,8 +11,21 @@
       name=""
     />
     <div v-if="v$.email.$error">
-      <p class="warning">Email field has an error.</p>
+      <p class="warning">{{ v$.email.$error.$message }}</p>
     </div>
+    <!-- First name -->
+    <label for=""></label>
+    <input @blur="v$.firstname.$touch" v-model="firstname" type="text" />
+    <div v-if="v$.firstname.$error">
+      <p class="warning">First name required.</p>
+    </div>
+    <!-- Lastname -->
+    <label for=""></label>
+    <input type="text" @blur="v$.lastname.$touch" v-model="lastname" />
+    <div v-if="v$.lastname.$error">
+      <p class="warning">Last name required.</p>
+    </div>
+    <!-- Password-->
     <input
       @blur="v$.password.$touch"
       type="password"
@@ -22,6 +36,7 @@
     <div v-if="v$.password.$error">
       <p class="warning">Password length needs to be atleast 8.</p>
     </div>
+    <!-- Confirm password -->
     <input
       @blur="v$.confirmPassword.$touch"
       type="password"
@@ -33,46 +48,90 @@
     <div v-if="v$.confirmPassword.$error">
       <p class="warning">Passwords did not match</p>
     </div>
-
-    <button class="sbmt" @click="addPerson({ email, password })">
+    <!-- Button -->
+    <button
+      class="sbmt"
+      @click="addPerson({ email, firstname, lastname, password })"
+    >
       Sign Up
     </button>
+
+    <p v-for="error of v$.$errors" :key="error.$uid">
+      <strong>{{ error.$validator }}</strong>
+      <small> on property</small>
+      <strong>{{ error.$property }}</strong>
+      <small> says:</small>
+      <strong>{{ error.$message }}</strong>
+    </p>
   </div>
 </template>
 
 <script lang="TS">
-import { ref } from 'vue'
+import { ref,computed } from 'vue'
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import {useUserStore} from "@/stores/user"
 
+
 export default {
   setup() {
+
+
     const email = ref("");
+    const firstname = ref("");
+    const lastname = ref("");
     const password = ref("");
     const confirmPassword = ref("");
     // expose to template and other options API hooks
     const userStore = useUserStore();
+    const {addPerson} = userStore
+    const rules = computed(() => ({
+      email: {
+        required,
+        email
+      },
+      firstname: {
+        required
+      },
+      lastname: {
+        required
+      },
+      password: {
+        required,
+        minLength: minLength(8)
+      },
+      confirmPassword:{
+        required,
+        sameAs: sameAs(password)
+      }
+    }))
 
-    const {addUser, addPerson} = userStore
+    const v$ = useVuelidate(rules, { name, firstname, lastname, password, confirmPassword })
+
+    // function submitForm(params) {
+
+    // }
 
     return {
       email,
+      firstname,
+      lastname,
       password,
       confirmPassword,
-      v$: useVuelidate(),
-      addUser,
+      v$,
+      // v$: useVuelidate(),
       addPerson
     };
   },
-  validations() {
-    return {
-      email: { required, email },
-      password: { required, minLength: minLength(8) },
-      confirmPassword: { required, sameAs: sameAs(this.password) },
-
-    };
-  },
+  // validations() {
+  //   return {
+  //     email: { required, email },
+  //     firstname: {required},
+  //     lastname: {required},
+  //     password: { required, minLength: minLength(8) },
+  //     confirmPassword: { required, sameAs: sameAs(this.password) },
+  //   };
+  // },
 };
 </script>
 
@@ -95,13 +154,17 @@ p {
   padding: 0;
 }
 input {
-  background-color: bisque;
+  background: rgb(234, 234, 234);
   width: 380px;
   margin-bottom: 1em;
   height: 3em;
   padding: 0.5em;
   border: 2px solid grey;
   border-radius: 10px;
+}
+
+input:hover {
+  background: rgb(189, 189, 189);
 }
 div {
   display: flex;
@@ -122,10 +185,8 @@ button {
   border-radius: 10px;
   border: 2px solid #fe4647;
   font-size: 12;
-
-  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 button:hover {
   box-shadow: none;
