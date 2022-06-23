@@ -5,6 +5,7 @@
 
 <script lang="TS">
 import SecondaryHeader from '@/components/SecondaryNav.vue'
+
 export default{
   components: {
     SecondaryHeader

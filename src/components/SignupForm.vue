@@ -34,7 +34,7 @@
       <p class="warning">Passwords did not match</p>
     </div>
 
-    <button class="sbmt" @click="submitForm">Sign Up</button>
+    <button class="sbmt" @click="addUser">Sign Up</button>
   </div>
 </template>
 
@@ -42,7 +42,10 @@
 import useValidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import {useUserStore} from "@/stores/user"
-const userStore = useUserStore()
+import {mapActions} from "pinia"
+const main = useUserStore()
+// const {addUser} = main
+const {addUser} = mapActions(useUserStore, ["addUser"])
 export default {
   data() {
     return {
@@ -64,31 +67,7 @@ export default {
     };
   },
 
-  computed: {
-
-    hasError() {
-      this.v$.$valiadte();
-      if (this.v$.$error) {
-        return !this.noError
-      } else {
-        return this.noError
-      }
-    }
-  },
-
   methods: {
-    submitForm() {
-      // this.v$.$valiadte();
-      // if (!this.v$.$error) {
-      //   this.$emit("userinfo", this.email, this.password)
-      // } else {
-      //   alert("Not YEiii")
-      // }
-      // this.$emit("userinfo", this.email, this.password)
-      // console.log(this.$emit)
-      // this.userStore.receieve(this.email, this.password)
-
-    },
   },
 };
 </script>

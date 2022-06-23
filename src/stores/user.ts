@@ -3,14 +3,16 @@ import { defineStore } from "pinia";
 export const useUserStore = defineStore({
   id: "user",
   state: () => ({
-    user: [{ email: "", password: "" }],
+    // user: [{ email: "admin@admin.admin", password: "admin123" }],
+    users: ["Johncena"],
   }),
   getters: {
-    userCount: (state) => state.user.length,
+    userCount: (state) => state.users.length,
   },
   actions: {
-    receieve(data: any) {
-      this.user.push(data);
+    addUser() {
+      this.users.push("kane");
+      console.log(this.users);
     },
   },
 });
