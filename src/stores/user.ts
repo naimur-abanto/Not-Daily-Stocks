@@ -13,12 +13,10 @@ export const useUserStore = defineStore({
   actions: {
     addUser() {
       this.users.push("kane");
-      console.log(this.users);
     },
 
     addPerson(user: { email: string; password: string }) {
       this.fulluser.push(user);
-      console.log(this.fulluser);
     },
   },
 });
