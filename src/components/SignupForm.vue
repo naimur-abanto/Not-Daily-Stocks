@@ -3,25 +3,35 @@
     <!-- Email address -->
     <label for="email"> </label>
     <input
-      @blur="v$.email.$touch"
+      @blur="v$.emailAddress.$touch"
       id="email"
       type="text"
       placeholder="Your email"
-      v-model="email"
+      v-model="emailAddress"
       name=""
     />
-    <div v-if="v$.email.$error">
-      <p class="warning">{{ v$.email.$error.$message }}</p>
+    <div v-if="v$.emailAddress.$error">
+      <p class="warning">valid email address required</p>
     </div>
     <!-- First name -->
     <label for=""></label>
-    <input @blur="v$.firstname.$touch" v-model="firstname" type="text" />
+    <input
+      @blur="v$.firstname.$touch"
+      v-model="firstname"
+      type="text"
+      placeholder="lastname"
+    />
     <div v-if="v$.firstname.$error">
       <p class="warning">First name required.</p>
     </div>
     <!-- Lastname -->
     <label for=""></label>
-    <input type="text" @blur="v$.lastname.$touch" v-model="lastname" />
+    <input
+      type="text"
+      @blur="v$.lastname.$touch"
+      v-model="lastname"
+      placeholder="lastname"
+    />
     <div v-if="v$.lastname.$error">
       <p class="warning">Last name required.</p>
     </div>
@@ -55,29 +65,17 @@
     >
       Sign Up
     </button>
-
-    <p v-for="error of v$.$errors" :key="error.$uid">
-      <strong>{{ error.$validator }}</strong>
-      <small> on property</small>
-      <strong>{{ error.$property }}</strong>
-      <small> says:</small>
-      <strong>{{ error.$message }}</strong>
-    </p>
+    <button @click="clicked">Click me</button>
   </div>
 </template>
-
 <script lang="TS">
-import { ref,computed } from 'vue'
+import { ref, methods } from 'vue'
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import {useUserStore} from "@/stores/user"
-
-
 export default {
   setup() {
-
-
-    const email = ref("");
+    const emailAddress = ref("");
     const firstname = ref("");
     const lastname = ref("");
     const password = ref("");
@@ -85,10 +83,10 @@ export default {
     // expose to template and other options API hooks
     const userStore = useUserStore();
     const {addPerson} = userStore
-    const rules = computed(() => ({
-      email: {
+    const rules = {
+      emailAddress: {
         required,
-        email
+
       },
       firstname: {
         required
@@ -104,34 +102,38 @@ export default {
         required,
         sameAs: sameAs(password)
       }
-    }))
-
+    }
+    function submitForm() {
+      v$.$validate
+      for(let error in v$.value.$errors){
+        console.log(error.$message)
+      }
+    }
     const v$ = useVuelidate(rules, { name, firstname, lastname, password, confirmPassword })
-
-    // function submitForm(params) {
-
-    // }
-
     return {
-      email,
+      emailAddress,
       firstname,
       lastname,
       password,
       confirmPassword,
       v$,
-      // v$: useVuelidate(),
-      addPerson
+      addPerson,
+      submitForm
     };
   },
-  // validations() {
-  //   return {
-  //     email: { required, email },
-  //     firstname: {required},
-  //     lastname: {required},
-  //     password: { required, minLength: minLength(8) },
-  //     confirmPassword: { required, sameAs: sameAs(this.password) },
-  //   };
-  // },
+
+  methods: {
+    clicked(){
+      this.v$.$validate
+      // console.log(this.v$.$errors)
+      for(let error in this.v$.$errors)
+      {
+        console.log(this.v$.$errors[error].$message)
+      }
+
+    }
+  }
+
 };
 </script>
 
