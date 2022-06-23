@@ -34,7 +34,9 @@
       <p class="warning">Passwords did not match</p>
     </div>
 
-    <button class="sbmt" @click="addUser">Sign Up</button>
+    <button class="sbmt" @click="addPerson({ email, password })">
+      Sign Up
+    </button>
   </div>
 </template>
 
@@ -52,14 +54,15 @@ export default {
     // expose to template and other options API hooks
     const userStore = useUserStore();
 
-    const {addUser} = userStore
+    const {addUser, addPerson} = userStore
 
     return {
       email,
       password,
       confirmPassword,
       v$: useVuelidate(),
-      addUser
+      addUser,
+      addPerson
     };
   },
   validations() {
