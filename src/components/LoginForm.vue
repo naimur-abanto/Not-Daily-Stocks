@@ -2,14 +2,14 @@
   <div>
     <label for="email"> {{ e1 }}</label>
     <input
-      @blur="v$.email.$touch"
+      @blur="v$.emailAddress.$touch"
       id="email"
       type="text"
       placeholder="Your email"
-      v-model="email"
+      v-model="emailAddress"
       name=""
     />
-    <div v-if="v$.email.$error">
+    <div v-if="v$.emailAddress.$error">
       <p class="warning">Invalid email address</p>
     </div>
     <input
@@ -27,38 +27,36 @@
   </div>
 </template>
 
-<script lang="TS">
-import useValidate from "@vuelidate/core";
-import { required, email, minLength, sameAs } from "@vuelidate/validators";
+<script>
+import useVuelidate from "@vuelidate/core";
+import { required, email } from "@vuelidate/validators";
+import { ref, methods } from "vue";
+import { useUserStore } from "@/stores/user";
 export default {
-  data() {
+  setup() {
+    const userStore = useUserStore();
+    const { authUser } = userStore;
+    const emailAddress = ref("");
+    const password = ref("");
+    const rules = {
+      emailAddress: { required, email },
+      password: { required },
+    };
+    const v$ = useVuelidate(rules, { emailAddress, password });
     return {
-      v$: useValidate(),
-      email: "",
-      password: "",
-      confirmPassword: "",
-      warningMessage: "",
-      noError: false,
+      emailAddress,
+      password,
+      v$,
+      authUser,
     };
   },
-
-  validations() {
-    return {
-      email: { required, email },
-      password: { required, minLength: minLength(8) },
-      confirmPassword: { required, sameAs: sameAs(this.password) },
-
-    };
-  },
-
-
   methods: {
     submitForm() {
-      this.v$.$valiadte();
+      this.v$.$validate();
       if (!this.v$.$error) {
-        alert("Yeii")
+        this.authUser(this.emailAddress, this.password);
       } else {
-        alert("Not YEiii")
+        alert("Not YEiii");
       }
     },
   },

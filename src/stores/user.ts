@@ -25,6 +25,22 @@ export const useUserStore = defineStore({
     }) {
       this.userBank.push(user);
     },
+
+    authUser(email: string, password: string) {
+      //check if email& password matches
+      for (const user in this.userBank) {
+        console.log(this.userBank[user].email);
+        if (
+          email === this.userBank[user].email &&
+          password === this.userBank[user].password
+        ) {
+          alert("Log in successfull");
+          return;
+        }
+      }
+
+      alert("username or password did not match");
+    },
   },
   persist: true,
 });
