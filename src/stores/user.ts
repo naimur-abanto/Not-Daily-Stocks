@@ -29,7 +29,7 @@ export const useUserStore = defineStore({
     authUser(email: string, password: string) {
       //check if email& password matches
       for (const user in this.userBank) {
-        console.log(this.userBank[user].email);
+        // console.log(this.userBank[user].email);
         if (
           email === this.userBank[user].email &&
           password === this.userBank[user].password

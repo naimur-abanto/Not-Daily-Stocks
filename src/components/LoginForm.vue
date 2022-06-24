@@ -52,12 +52,13 @@ export default {
   },
   methods: {
     submitForm() {
-      this.v$.$validate();
-      if (!this.v$.$error) {
-        this.authUser(this.emailAddress, this.password);
-      } else {
-        alert("Not YEiii");
-      }
+      // this.v$.$validate();
+      // if (!this.v$.$error) {
+      // this.authUser(this.emailAddress, this.password);
+      this.authUser(this.emailAddress, this.password);
+      // } else {
+      // alert("Not YEiii");
+      // }
     },
   },
 };

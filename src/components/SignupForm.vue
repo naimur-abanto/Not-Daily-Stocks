@@ -136,7 +136,7 @@ export default {
     clicked(){
       this.v$.$validate();
       if (!this.v$.$error) {
-        this.person.mail =  this.emailAddress
+        this.person.email =  this.emailAddress
         this.person.firstname = this.firstname
         this.person.lastname = this.lastname
         this.person.password = this.password
