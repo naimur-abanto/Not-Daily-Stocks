@@ -72,6 +72,7 @@
   </div>
 </template>
 <script lang="TS">
+import VueRouter from 'vue-router'
 import { ref, methods } from 'vue'
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
@@ -140,7 +141,8 @@ export default {
         this.person.lastname = this.lastname
         this.person.password = this.password
         this.addPerson(this.person)
-        this.isSuccessful = true
+        this.isSuccessful = true;
+        this.$router.push('/auth/login')
       } else {
         alert("All fields are required");
       }
