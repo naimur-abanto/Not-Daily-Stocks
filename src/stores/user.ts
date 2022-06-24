@@ -14,7 +14,7 @@ export const useUserStore = defineStore({
   }),
   getters: {
     userCount: (state) => state.userBank.length,
-    // showUsers: (state) => console.log(state.userBank),
+    showUsers: (state) => console.log(state.userBank),
   },
   actions: {
     addPerson(user: {

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-if="isSuccessful">
+      <h1>Sign up successful</h1>
+    </div>
     <!-- Email address -->
     <label for="emailAddress"> </label>
     <input
@@ -13,28 +16,35 @@
     <div v-if="v$.emailAddress.$error">
       <p class="warning">valid email address required</p>
     </div>
+    <!-- Name -->
+
+    <div class="name-field">
+      <label for=""></label>
+      <input
+        @blur="v$.firstname.$touch"
+        v-model="firstname"
+        type="text"
+        placeholder="Firstname"
+        class="name name-f"
+      />
+      <div v-if="v$.firstname.$error">
+        <p class="warning">First name required.</p>
+      </div>
+      <!-- Lastname -->
+      <label for=""></label>
+      <input
+        type="text"
+        @blur="v$.lastname.$touch"
+        v-model="lastname"
+        placeholder="Lastname"
+        class="name name-l"
+      />
+      <div v-if="v$.lastname.$error">
+        <p class="warning">Last name required.</p>
+      </div>
+    </div>
     <!-- First name -->
-    <label for=""></label>
-    <input
-      @blur="v$.firstname.$touch"
-      v-model="firstname"
-      type="text"
-      placeholder="lastname"
-    />
-    <div v-if="v$.firstname.$error">
-      <p class="warning">First name required.</p>
-    </div>
-    <!-- Lastname -->
-    <label for=""></label>
-    <input
-      type="text"
-      @blur="v$.lastname.$touch"
-      v-model="lastname"
-      placeholder="lastname"
-    />
-    <div v-if="v$.lastname.$error">
-      <p class="warning">Last name required.</p>
-    </div>
+
     <!-- Password-->
     <input
       @blur="v$.password.$touch"
@@ -58,14 +68,7 @@
     <div v-if="v$.confirmPassword.$error">
       <p class="warning">Passwords did not match</p>
     </div>
-    <!-- Button -->
-    <!-- <button
-      class="sbmt"
-      @click="addPerson({ email, firstname, lastname, password })"
-    >
-      Sign Up
-    </button> -->
-    <button class="sbmt" @click="clicked">Click me</button>
+    <button class="sbmt" @click="clicked">Sign up</button>
   </div>
 </template>
 <script lang="TS">
@@ -90,6 +93,7 @@ export default {
     const userStore = useUserStore();
     const {addPerson} = userStore
     const {showUsers} = userStore
+    const isSuccessful = false;
     const rules = {
       emailAddress: {
         required,
@@ -121,7 +125,8 @@ export default {
       confirmPassword,
       v$,
       addPerson,
-      showUsers
+      showUsers,
+      isSuccessful
 
     };
   },
@@ -135,6 +140,7 @@ export default {
         this.person.lastname = this.lastname
         this.person.password = this.password
         this.addPerson(this.person)
+        this.isSuccessful = true
       } else {
         alert("All fields are required");
       }
@@ -144,6 +150,15 @@ export default {
 </script>
 
 <style scoped>
+.name {
+  width: 175px;
+}
+.name-f {
+  margin-right: 10px;
+}
+.name-field {
+  display: inline-block;
+}
 .warning {
   padding: 5px;
   border: thin solid gray;
