@@ -24,6 +24,7 @@ export const useUserStore = defineStore({
     }) {
       this.userBank.push(user);
       console.log(this.userBank.length);
+      console.log(this.userBank);
     },
   },
 });

@@ -12,8 +12,8 @@
     To create your account, Google or Facebook will share your name, email
     address and profile picture with Daily Stocks. By signing up, you accept
     Daily Stocks's
-    <router-link to="/TermsDetails">Terms of use</router-link> and
-    <router-link to="/PrivacyDetails">Privacy policy.</router-link>
+    <router-link to="/terms">Terms of use</router-link> and
+    <router-link to="/privacy">Privacy policy.</router-link>
   </p>
   <div class="after-buttons">
     Have an account already?<router-link class="to-login" to="LogIn"

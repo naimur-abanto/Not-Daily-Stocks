@@ -1,14 +1,14 @@
 <template>
   <div>
     <!-- Email address -->
-    <label for="email"> </label>
+    <label for="emailAddress"> </label>
     <input
       @blur="v$.emailAddress.$touch"
-      id="email"
+      id="emailAddress"
       type="text"
       placeholder="Your email"
       v-model="emailAddress"
-      name=""
+      name="emailAddress"
     />
     <div v-if="v$.emailAddress.$error">
       <p class="warning">valid email address required</p>
@@ -59,13 +59,13 @@
       <p class="warning">Passwords did not match</p>
     </div>
     <!-- Button -->
-    <button
+    <!-- <button
       class="sbmt"
       @click="addPerson({ email, firstname, lastname, password })"
     >
       Sign Up
-    </button>
-    <button @click="clicked">Click me</button>
+    </button> -->
+    <button class="sbmt" @click="clicked">Click me</button>
   </div>
 </template>
 <script lang="TS">
@@ -75,6 +75,13 @@ import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import {useUserStore} from "@/stores/user"
 export default {
   setup() {
+
+    const person = ref({
+      mail: "",
+      firstname: "",
+      lastname: "",
+      password: ""
+    })
     const emailAddress = ref("");
     const firstname = ref("");
     const lastname = ref("");
@@ -86,7 +93,7 @@ export default {
     const rules = {
       emailAddress: {
         required,
-
+        email
       },
       firstname: {
         required
@@ -103,14 +110,15 @@ export default {
         sameAs: sameAs(password)
       }
     }
-    const v$ = useVuelidate(rules, { name, firstname, lastname, password, confirmPassword })
-    function submitForm() {
-      v$.$validate
-      for(let error in v$.value.$errors){
-        console.log(error.$message)
-      }
-    }
+    const v$ = useVuelidate(rules, { emailAddress, firstname, lastname, password, confirmPassword })
+    // function submitForm() {
+    //   v$.$validate
+    //   for(let error in v$.value.$errors){
+    //     console.log(error.$message)
+    //   }
+    // }
     return {
+      person,
       emailAddress,
       firstname,
       lastname,
@@ -118,15 +126,22 @@ export default {
       confirmPassword,
       v$,
       addPerson,
-      submitForm
+      // submitForm
     };
   },
 
   methods: {
     clicked(){
-      this.v$.$validate()
+      this.v$.$validate();
       if (!this.v$.$error) {
-        alert("SignUp successful");
+        this.person.mail =  this.emailAddress
+        this.person.firstname = this.firstname
+        this.person.lastname = this.lastname
+        this.person.password = this.password
+        this.addPerson(this.person)
+        // alert(this.firstname + this.lastname + this.emailAddress + this.password);
+        // this.addPerson({this.emailAddress, this.firstname, this.lastname; this.password})
+        // console.log(this.person)
       } else {
         alert("All fields are required");
       }
