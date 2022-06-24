@@ -14,6 +14,7 @@ export const useUserStore = defineStore({
   }),
   getters: {
     userCount: (state) => state.userBank.length,
+    // showUsers: (state) => console.log(state.userBank),
   },
   actions: {
     addPerson(user: {
@@ -23,8 +24,7 @@ export const useUserStore = defineStore({
       password: string;
     }) {
       this.userBank.push(user);
-      console.log(this.userBank.length);
-      console.log(this.userBank);
     },
   },
+  persist: true,
 });

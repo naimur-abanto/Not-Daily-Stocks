@@ -2,7 +2,6 @@
 
 <script lang="TS">
 import { defineComponent } from "vue";
-import {storeToRefs} from "pinia"
 export default defineComponent({
   name: "App",
 

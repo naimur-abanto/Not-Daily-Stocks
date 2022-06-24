@@ -75,7 +75,6 @@ import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import {useUserStore} from "@/stores/user"
 export default {
   setup() {
-
     const person = ref({
       mail: "",
       firstname: "",
@@ -90,6 +89,7 @@ export default {
     // expose to template and other options API hooks
     const userStore = useUserStore();
     const {addPerson} = userStore
+    const {showUsers} = userStore
     const rules = {
       emailAddress: {
         required,
@@ -111,12 +111,7 @@ export default {
       }
     }
     const v$ = useVuelidate(rules, { emailAddress, firstname, lastname, password, confirmPassword })
-    // function submitForm() {
-    //   v$.$validate
-    //   for(let error in v$.value.$errors){
-    //     console.log(error.$message)
-    //   }
-    // }
+
     return {
       person,
       emailAddress,
@@ -126,7 +121,8 @@ export default {
       confirmPassword,
       v$,
       addPerson,
-      // submitForm
+      showUsers
+
     };
   },
 
@@ -139,9 +135,6 @@ export default {
         this.person.lastname = this.lastname
         this.person.password = this.password
         this.addPerson(this.person)
-        // alert(this.firstname + this.lastname + this.emailAddress + this.password);
-        // this.addPerson({this.emailAddress, this.firstname, this.lastname; this.password})
-        // console.log(this.person)
       } else {
         alert("All fields are required");
       }
