@@ -1,4 +1,4 @@
-<template><router-view> </router-view></template>
+<!-- <template><router-view> </router-view></template>
 
 <script lang="TS">
 import { defineComponent } from "vue";
@@ -15,4 +15,4 @@ body {
   margin: 0;
   padding: 0;
 }
-</style>
+</style> -->
