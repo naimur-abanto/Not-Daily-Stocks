@@ -8,21 +8,41 @@
         Sign In
       </router-link>
     </div>
-    <h3 v-if="isLogged">{{ currentUser.firstname }}</h3>
+    <div v-if="isLogged">
+      <router-link class="dash-board" to="/dashboard"> Dashboard </router-link>
+      <button class="username-button" @click="toggle">
+        {{ currentUser.firstname }}
+      </button>
+      <div v-if="!isHidden">
+        <li><router-link to="/user/account">Account</router-link></li>
+        <li><button @click="logOut">Logout</button></li>
+      </div>
+    </div>
   </header>
 </template>
 
 <script lang="TS">
 import { storeToRefs } from 'pinia'
+import {ref} from 'vue'
 import { useUserStore } from '@/stores/user.ts'
 export default{
   setup(){
     const userStore = useUserStore()
     const {isLogged} = storeToRefs(userStore)
     const {currentUser} = storeToRefs(userStore)
+    const {logOut} = userStore
+    const isHidden = ref(true)
+
+    function toggle() {
+      isHidden.value = !isHidden.value
+      console.log(isHidden.value)
+    }
     return{
       isLogged,
-      currentUser
+      currentUser,
+      toggle,
+      isHidden,
+      logOut
     }
   }
 }
@@ -32,6 +52,17 @@ export default{
 header {
   height: 64px;
   display: flex;
+}
+
+.dash-board {
+  text-decoration: none;
+}
+.username-button {
+  border: 4px solid red;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .logo {

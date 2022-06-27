@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="email"> {{ e1 }}</label>
+    <h3>{{ messageLogin }}</h3>
     <input
       @blur="v$.emailAddress.$touch"
       id="email"
@@ -32,10 +32,12 @@ import useVuelidate from "@vuelidate/core";
 import { required, email } from "@vuelidate/validators";
 import { ref, methods } from "vue";
 import { useUserStore } from "@/stores/user";
+import { storeToRefs } from "pinia";
 export default {
   setup() {
     const userStore = useUserStore();
     const { authUser } = userStore;
+    const { messageLogin } = storeToRefs(userStore);
     const emailAddress = ref("");
     const password = ref("");
     const rules = {
@@ -48,17 +50,12 @@ export default {
       password,
       v$,
       authUser,
+      messageLogin,
     };
   },
   methods: {
     submitForm() {
-      // this.v$.$validate();
-      // if (!this.v$.$error) {
-      // this.authUser(this.emailAddress, this.password);
       this.authUser(this.emailAddress, this.password);
-      // } else {
-      // alert("Not YEiii");
-      // }
     },
   },
 };

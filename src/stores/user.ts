@@ -1,4 +1,6 @@
 import { defineStore } from "pinia";
+import router from "@/routes";
+
 interface IUser {
   email: string;
   firstname: string;
@@ -50,10 +52,20 @@ export const useUserStore = defineStore({
           this.currentUser.lastname = this.userBank[user].lastname;
           this.isLogged = true;
           this.messageLogin = "Login Successful";
+          router.push("/");
           return;
         }
       }
-      alert("username or password did not match");
+      this.messageLogin = "Username / Password incorrect";
+    },
+
+    logOut() {
+      this.currentUser.email = "";
+      this.currentUser.password = "";
+      this.currentUser.firstname = "";
+      this.currentUser.lastname = "";
+      this.isLogged = false;
+      router.push("/");
     },
   },
   persist: true,
