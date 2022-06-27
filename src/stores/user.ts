@@ -1,8 +1,17 @@
 import { defineStore } from "pinia";
+interface IUser {
+  email: string;
+  firstname: string;
+  lastname: string;
+  password: string;
+}
 
 export const useUserStore = defineStore({
   id: "user",
   state: () => ({
+    messageLogin: "",
+    messageSignup: "",
+    isLogged: false,
     userBank: [
       {
         email: "admin@admin.admin",
@@ -11,34 +20,39 @@ export const useUserStore = defineStore({
         password: "admin123",
       },
     ],
+    currentUser: {
+      email: "",
+      firstname: "",
+      lastname: "",
+      password: "",
+    },
   }),
   getters: {
     userCount: (state) => state.userBank.length,
     showUsers: (state) => console.log(state.userBank),
+    loggedStatus: (state) => state.isLogged,
   },
   actions: {
-    addPerson(user: {
-      email: string;
-      firstname: string;
-      lastname: string;
-      password: string;
-    }) {
+    addPerson(user: IUser) {
       this.userBank.push(user);
     },
 
     authUser(email: string, password: string) {
       //check if email& password matches
       for (const user in this.userBank) {
-        // console.log(this.userBank[user].email);
         if (
           email === this.userBank[user].email &&
           password === this.userBank[user].password
         ) {
-          alert("Log in successfull");
+          this.currentUser.email = this.userBank[user].email;
+          this.currentUser.password = this.userBank[user].email;
+          this.currentUser.firstname = this.userBank[user].firstname;
+          this.currentUser.lastname = this.userBank[user].lastname;
+          this.isLogged = true;
+          this.messageLogin = "Login Successful";
           return;
         }
       }
-
       alert("username or password did not match");
     },
   },

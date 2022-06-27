@@ -3,8 +3,26 @@
     <router-link to="/">
       <img class="logo" src="@/assets/logo.png" alt="" />
     </router-link>
+
+    <h3 v-if="isLogged">User</h3>
   </header>
 </template>
+
+<script lang="TS">
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@/stores/user.ts'
+export default{
+  setup(){
+    const userStore = useUserStore()
+    const {isLogged} = storeToRefs(userStore)
+
+    return{
+      isLogged
+    }
+  }
+
+}
+</script>
 
 <style scoped>
 header {

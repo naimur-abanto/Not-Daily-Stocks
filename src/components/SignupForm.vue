@@ -128,7 +128,6 @@ export default {
       addPerson,
       showUsers,
       isSuccessful
-
     };
   },
 
