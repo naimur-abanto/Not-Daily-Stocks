@@ -1,5 +1,5 @@
 <template>
-  <the-header></the-header>
+  <top-nav></top-nav>
   <section>
     <div>
       <h1>Daily Stocks</h1>
@@ -8,7 +8,7 @@
         price.
       </p>
     </div>
-    <div>
+    <div v-if="!isLogged">
       <router-link to="/auth/login" class="si">SIGN IN</router-link>
       <router-link to="/Auth/SignUp" class="su">SIGN UP</router-link>
     </div>
@@ -16,14 +16,23 @@
   <the-footer></the-footer>
 </template>
 
-<script lang="ts">
-import TheHeader from "@/components/TheHeader.vue";
+<script lang="TS">
+import TopNav from "@/components/TopNav.vue";
 import TheFooter from "@/components/TheFooter.vue";
+import { storeToRefs } from "pinia";
+import { useUserStore } from "@/stores/user.ts";
 export default {
   components: {
-    TheHeader,
+    TopNav,
     TheFooter,
   },
+  setup(){
+    const userStore = useUserStore()
+    const {isLogged} = storeToRefs(userStore)
+    return{
+      isLogged,
+    }
+  }
 };
 </script>
 

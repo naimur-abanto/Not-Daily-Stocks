@@ -3,6 +3,11 @@
     <router-link to="/">
       <img class="logo" src="@/assets/logo.png" alt="" />
     </router-link>
+    <div v-if="!isLogged">
+      <router-link class="sign-in-button" to="/Auth/LogIn">
+        Sign In
+      </router-link>
+    </div>
     <h3 v-if="isLogged">{{ currentUser.firstname }}</h3>
   </header>
 </template>

@@ -1,14 +1,14 @@
 <template>
-  <secondary-header></secondary-header>
+  <top-nav></top-nav>
   <router-view></router-view>
 </template>
 
 <script lang="TS">
-import SecondaryHeader from '@/components/SecondaryNav.vue'
+import TopNav from '@/components/TopNav.vue'
 
 export default{
   components: {
-    SecondaryHeader
+    TopNav
   }
 }
 </script>
