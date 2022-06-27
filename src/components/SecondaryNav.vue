@@ -3,8 +3,7 @@
     <router-link to="/">
       <img class="logo" src="@/assets/logo.png" alt="" />
     </router-link>
-
-    <h3 v-if="isLogged">User</h3>
+    <h3 v-if="isLogged">{{ currentUser.firstname }}</h3>
   </header>
 </template>
 
@@ -15,12 +14,12 @@ export default{
   setup(){
     const userStore = useUserStore()
     const {isLogged} = storeToRefs(userStore)
-
+    const {currentUser} = storeToRefs(userStore)
     return{
-      isLogged
+      isLogged,
+      currentUser
     }
   }
-
 }
 </script>
 
