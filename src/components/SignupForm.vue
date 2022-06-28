@@ -51,7 +51,6 @@
       type="password"
       placeholder="Password"
       v-model="password"
-      name=""
     />
     <div v-if="v$.password.$error">
       <p class="warning">Password length needs to be atleast 8.</p>
@@ -62,8 +61,6 @@
       type="password"
       placeholder="Confirm Password"
       v-model="confirmPassword"
-      name=""
-      id=""
     />
     <div v-if="v$.confirmPassword.$error">
       <p class="warning">Passwords did not match</p>

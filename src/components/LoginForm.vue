@@ -1,13 +1,12 @@
 <template>
   <div>
-    <h3>{{ messageLogin }}</h3>
     <input
       @blur="v$.emailAddress.$touch"
       id="email"
       type="text"
       placeholder="Your email"
       v-model="emailAddress"
-      name=""
+      name="emailAddressField"
     />
     <div v-if="v$.emailAddress.$error">
       <p class="warning">Invalid email address</p>
@@ -17,7 +16,7 @@
       type="password"
       placeholder="Password"
       v-model="password"
-      name=""
+      name="passwordField"
     />
     <div v-if="v$.password.$error">
       <p class="warning">Password length needs to be atleast 8.</p>
@@ -27,7 +26,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import useVuelidate from "@vuelidate/core";
 import { required, email } from "@vuelidate/validators";
 import { ref, methods } from "vue";
