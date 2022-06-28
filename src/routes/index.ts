@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LandingPage from "@/views/LandingPage.vue";
+import { useUserStore } from "@/stores/user";
 
 const routes = [
   {
@@ -24,18 +25,34 @@ const routes = [
     name: "Auth",
     component: () =>
       import(/* webpackChunkName: "auth" */ "../views/Auth/AuthView.vue"),
+    beforeEnter() {
+      if (useUserStore().$state.isLogged) {
+        return { name: "Account" };
+      }
+    },
     children: [
       {
         path: "login",
         name: "Login",
         component: () =>
           import(/* webpackChunkName: "login" */ "../views/Auth/LogIn.vue"),
+
+        // beforeEnter() {
+        //   if (useUserStore().$state.isLogged) {
+        //     return { name: "Account" };
+        //   }
+        // },
       },
       {
         path: "signup",
         name: "SignUp",
         component: () =>
           import(/* webpackChunkName: "signup" */ "../views/Auth/SignUp.vue"),
+        // beforeEnter() {
+        //   if (useUserStore().$state.isLogged) {
+        //     return { name: "Account" };
+        //   }
+        // },
       },
     ],
   },
@@ -48,6 +65,11 @@ const routes = [
         path: "account",
         name: "Account",
         component: () => import("../views/User/AccountDetail.vue"),
+        beforeEnter() {
+          if (!useUserStore().$state.isLogged) {
+            return { name: "Login" };
+          }
+        },
       },
     ],
   },
@@ -55,6 +77,11 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: () => import("../views/DashBoard.vue"),
+    beforeEnter() {
+      if (!useUserStore().$state.isLogged) {
+        return { name: "Login" };
+      }
+    },
   },
 ];
 
@@ -62,4 +89,5 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
 export default router;
