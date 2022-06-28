@@ -74,7 +74,6 @@ img {
 h3 {
   width: 30vw;
   padding: 8px 0;
-  background: #e6e6e6;
   text-align: center;
 }
 
@@ -96,9 +95,6 @@ div {
   margin-bottom: 50px;
 }
 
-h3 {
-  text-align: center;
-}
 p {
   font-size: 12px;
   color: #606060;

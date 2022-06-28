@@ -64,7 +64,6 @@ img {
 h3 {
   width: 30vw;
   padding: 8px 0;
-  background: #e6e6e6;
   text-align: center;
 }
 
