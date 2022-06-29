@@ -97,7 +97,7 @@
                 <img
                   class="h-12 w-12 rounded-full"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt=""
+                  alt="profile-image"
                 />
               </button>
             </div>
@@ -113,7 +113,7 @@
               <!-- Active: "bg-gray-100", Not Active: "" -->
               <router-link
                 to="/user/account"
-                class="block px-4 py-2 text-sm text-gray-700"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
                 role="menuitem"
                 tabindex="-1"
                 id="user-menu-item-0"
@@ -122,7 +122,7 @@
 
               <a
                 @click="logOut"
-                class="block px-4 py-2 text-sm text-gray-700 hover:backdrop:first-letter:first-line:marker:"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300"
                 role="menuitem"
                 tabindex="-1"
                 id="user-menu-item-2"

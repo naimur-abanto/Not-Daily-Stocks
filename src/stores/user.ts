@@ -59,6 +59,11 @@ export const useUserStore = defineStore({
       this.messageLogin = "Username / Password incorrect";
     },
 
+    editInfo() {
+      this.currentUser.firstname = "I" + this.currentUser.firstname;
+      this.currentUser.lastname = "Y" + this.currentUser.lastname;
+    },
+
     logOut() {
       this.currentUser.email = "";
       this.currentUser.password = "";
