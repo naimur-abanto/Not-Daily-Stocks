@@ -6,15 +6,15 @@
     recusandae repudiandae cumque. Repellat laborum ad amet eum, nam cum sit.
     Dolor!
   </p>
-  <the-footer></the-footer>
+  <footer-component></footer-component>
 </template>
 
 <script lang="ts">
-import TheFooter from "@/components/TheFooter.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
   components: {
-    TheFooter,
+    FooterComponent,
   },
 };
 </script>

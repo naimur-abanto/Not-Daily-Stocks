@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="@/assets/logowt.png" alt="" />
+    <img src="@/assets/logowt.png" alt="Daily Stocks" />
     <h3>Log in</h3>
     <div class="button-holder">
       <card-sign></card-sign>

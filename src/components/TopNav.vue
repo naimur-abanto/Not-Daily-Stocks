@@ -56,12 +56,12 @@
               <img
                 class="hidden lg:block h-12 w-auto"
                 src="../assets/logo-with-horizontal-name.png"
-                alt="Workflow"
+                alt="Daily Stocks"
               />
               <img
                 class="block lg:hidden h-12 w-auto"
                 src="@/assets/justlogo.png"
-                alt="Workflow"
+                alt="Daily Stocks"
               />
             </router-link>
           </div>
@@ -152,7 +152,7 @@
 <script lang="TS">
 import { storeToRefs } from 'pinia'
 import {ref} from 'vue'
-import { useUserStore } from '@/stores/user.ts'
+import { useUserStore } from '@/stores/user'
 export default{
   setup(){
     const userStore = useUserStore()

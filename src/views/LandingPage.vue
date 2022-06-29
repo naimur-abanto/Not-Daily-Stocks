@@ -9,22 +9,22 @@
       </p>
     </div>
     <div v-if="!isLogged">
-      <router-link to="/auth/login" class="si">SIGN IN</router-link>
-      <router-link to="/Auth/SignUp" class="su">SIGN UP</router-link>
+      <router-link to="/auth/login" class="sign-in">SIGN IN</router-link>
+      <router-link to="/auth/signup" class="sign-up">SIGN UP</router-link>
     </div>
   </section>
-  <the-footer></the-footer>
+  <footer-component></footer-component>
 </template>
 
 <script lang="TS">
 import TopNav from "@/components/TopNav.vue";
-import TheFooter from "@/components/TheFooter.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 import { storeToRefs } from "pinia";
-import { useUserStore } from "@/stores/user.ts";
+import { useUserStore } from "@/stores/user";
 export default {
   components: {
     TopNav,
-    TheFooter,
+    FooterComponent
   },
   setup(){
     const userStore = useUserStore()
@@ -45,8 +45,6 @@ div {
 }
 
 h1 {
-  @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
-  font-family: "Lato", sans-serif;
   font-size: 7em;
   font-weight: bold 800;
   font-stretch: ultra-expanded !important;
@@ -85,21 +83,21 @@ a:hover {
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.si {
+.sign-in {
   background-color: #fe4642;
 }
 
-.si:hover {
+.sign-in:hover {
   transition: ease-in-out;
   transition-delay: 100ms;
   background-color: #ff655a;
 }
 
-.su {
+.sign-up {
   background-color: #4caf50;
 }
 
-.su:hover {
+.sign-up:hover {
   transition: ease-in-out;
   transition-delay: 100ms;
   background-color: #43a54d;

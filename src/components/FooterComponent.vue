@@ -22,7 +22,6 @@
   display: grid;
   grid-auto-rows: 1fr;
 }
-
 .upper {
   background-color: #ff6b68;
   color: white;
@@ -30,7 +29,6 @@
   justify-content: space-between;
   align-items: center;
 }
-
 .lower {
   text-align: center;
   margin: 1em;
