@@ -1,10 +1,10 @@
 <template>
   <div
-    class="bg-black bg-opacity-40 shadow overflow-hidden sm:rounded-lg w-max mx-auto my-auto"
+    class="bg-black bg-opacity-40 shadow-2xl overflow-hidden sm:rounded-lg w-max mx-auto my-20"
   >
     <div class="px-3 py-5">
       <div class="py-2 sm:px-6">
-        <h3>Account Settings</h3>
+        <h3 class="text-xl font-bold">Account Settings</h3>
         <p class="text-sm text-gray-800">
           This is the personal information you use to access and manage your
           account.
@@ -21,10 +21,10 @@
           />
 
           <div class="mx-1">
-            <p class="text-black text-bold text-start">
+            <p class="text-black text-start">
               {{ currentUser.firstname + " " + currentUser.lastname }}
             </p>
-            <p class="text-start">{{ currentUser.email }}</p>
+            <p class="text-gray-900 text-start">{{ currentUser.email }}</p>
           </div>
           <span class="translate-x-40">
             <button
