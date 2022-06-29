@@ -36,23 +36,12 @@ const routes = [
         name: "Login",
         component: () =>
           import(/* webpackChunkName: "login" */ "../views/Auth/LogIn.vue"),
-
-        // beforeEnter() {
-        //   if (useUserStore().$state.isLogged) {
-        //     return { name: "Account" };
-        //   }
-        // },
       },
       {
         path: "signup",
         name: "SignUp",
         component: () =>
           import(/* webpackChunkName: "signup" */ "../views/Auth/SignUp.vue"),
-        // beforeEnter() {
-        //   if (useUserStore().$state.isLogged) {
-        //     return { name: "Account" };
-        //   }
-        // },
       },
     ],
   },

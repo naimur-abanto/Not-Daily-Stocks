@@ -26,7 +26,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="TS">
 import useVuelidate from "@vuelidate/core";
 import { required, email } from "@vuelidate/validators";
 import { ref, methods } from "vue";
