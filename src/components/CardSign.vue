@@ -5,6 +5,7 @@
   </div>
 </template>
 
+
 <style scoped>
 .button-holders {
   display: flex;
