@@ -5,11 +5,30 @@
         <router-link to="/privacy">Privacy</router-link>
         <router-link to="/terms">Terms</router-link>
       </div>
-      <div class="right"></div>
+      <div v-if="isLogged" class="right">
+        <router-link class="border-4" to="/user/contact"
+          >Contact us</router-link
+        >
+      </div>
     </div>
     <div class="lower">© 2022 Daily Stocks, all rights reserved</div>
   </div>
 </template>
+
+<script lang="ts">
+import { useUserStore } from "@/stores/user";
+import { storeToRefs } from "pinia";
+export default {
+  setup() {
+    const userStore = useUserStore();
+    const { isLogged } = storeToRefs(userStore);
+
+    return {
+      isLogged,
+    };
+  },
+};
+</script>
 
 <style scoped>
 .footer-combined {

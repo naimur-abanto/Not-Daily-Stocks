@@ -23,8 +23,7 @@ const routes = [
   {
     path: "/auth",
     name: "Auth",
-    component: () =>
-      import(/* webpackChunkName: "auth" */ "../views/Auth/AuthView.vue"),
+    component: () => import("../views/Auth/AuthView.vue"),
     beforeEnter() {
       if (useUserStore().$state.isLogged) {
         return { name: "Account" };
@@ -34,14 +33,12 @@ const routes = [
       {
         path: "login",
         name: "Login",
-        component: () =>
-          import(/* webpackChunkName: "login" */ "../views/Auth/LogIn.vue"),
+        component: () => import("../views/Auth/LogIn.vue"),
       },
       {
         path: "signup",
         name: "SignUp",
-        component: () =>
-          import(/* webpackChunkName: "signup" */ "../views/Auth/SignUp.vue"),
+        component: () => import("../views/Auth/SignUp.vue"),
       },
     ],
   },
@@ -49,16 +46,22 @@ const routes = [
     path: "/user",
     name: "User",
     component: () => import("../views/User/UserView.vue"),
+    beforeEnter() {
+      if (!useUserStore().$state.isLogged) {
+        return { name: "Login" };
+      }
+    },
     children: [
       {
         path: "account",
         name: "Account",
         component: () => import("../views/User/AccountDetail.vue"),
-        beforeEnter() {
-          if (!useUserStore().$state.isLogged) {
-            return { name: "Login" };
-          }
-        },
+      },
+
+      {
+        path: "contact",
+        name: "Contact",
+        component: () => import("../views/User/ContactPage.vue"),
       },
     ],
   },
